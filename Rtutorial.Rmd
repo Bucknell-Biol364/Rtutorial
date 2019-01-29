@@ -1,0 +1,45 @@
+---
+title: "Rtutorial"
+output: html_document
+author: "Ian Vogel, Julie Berhane"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+R Tutorial for Animal Behavior 266 and Neuroscience 253 at Bucknell University
+
+BASIC - Ian
+Introduction of what R is
+Creating csv file for data
+Create a folder on your local device
+Save csv file into this folder
+Set folder as working directory
+Read csv file into R
+
+DATA EXPLORATION - Julie
+Check for completeness (missing values or NAs)
+Is the data stacked
+Gather summary statistics 
+  - where's the middle? (mean, median)
+  - dispersion? range, standard deviation, variance, standard error of mean, interquartile range
+
+When working with quantitative data you should first check to see if it is normally distributed. This is important when you eventually decide which statistical test to use as some of them assume that the data is normal. You can check to see if the data is normal using the simple.eda function in the UsingR package. The simple.eda function will show you the a histogram, boxplot, and normal Q-Q plot of the data. (#explain what a histogram, boxplot, and Q-Q plot looks like when it's normal).
+
+The Shapiro Wilks test is a way to statistically test if data is normal. This can be done using the shapiro.test function. The null hypothesis for this test is that the data is normal, so a p value less than 0.05 will reject the null and assume that the data is not normal. Therefore, if the p value returned is greater than 0.05 then the data is normal. This function will return some output that you don't need to look at. To focus on the p value use shapiro.test()$p.value.
+
+If the data is not normal, you may want to see if the data can be transformed and fit to be normal. This can be done by taking the log of the data. You can take the natural log and the log base 10 of the data and then run a Shapiro Wilks test to see if it is now normal. This can be done by blah
+
+If the data still isn't normal after transforming, then you should consider it to be not normal and then use non-parametric tests during your statistical analysis. Parametric tests are those that assume that data is normal and so are not suitable for non-normal data.
+
+
+
+
+DATA VISUALIZATION - Julie
+What type of variables are you working with? Numeric, categorical, logical, factor?? (same as categorical???)
+What visualization is best? Use kyla jackson cheatsheet
+
+HYPOTHESIS TESTING - Ian
