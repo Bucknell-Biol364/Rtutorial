@@ -20,26 +20,131 @@ Save csv file into this folder
 Set folder as working directory
 Read csv file into R
 
-DATA EXPLORATION - Julie
-Check for completeness (missing values or NAs)
-Is the data stacked
-Gather summary statistics 
-  - where's the middle? (mean, median)
-  - dispersion? range, standard deviation, variance, standard error of mean, interquartile range
+DATA EXPLORATION
+You can begin exploring your data set by looking at the head (first five rows) and tail (last five rows) of your dataset. You can also view the full dataset by typing the name of the file and running that line of code.
 
-When working with quantitative data you should first check to see if it is normally distributed. This is important when you eventually decide which statistical test to use as some of them assume that the data is normal. You can check to see if the data is normal using the simple.eda function in the UsingR package. The simple.eda function will show you the a histogram, boxplot, and normal Q-Q plot of the data. (#explain what a histogram, boxplot, and Q-Q plot looks like when it's normal).
+Another issue you should determine from the start is if there are missing values in your dataset. If it is a dataset you have collected yourself this may be easy to determine if the dataset was small enough, but when using large data or data from another source you should make sure to check this. You can check for missing values (often represented as NA, but could potentially be -999 or something else) and then choose if you want to keep or omit them from the data set.
+
+```{r}
+# Display full dataset
+NameOfYourRawDataFile
+# Display first five rows only (useful for large datasets)
+head(NameOfYourRawDataFile)
+# Display last five rows only
+tail(NameOfYourRawDataFile)
+# Count missing values
+sum(is.na(NameOfYourRawDataFile))
+# Exclude observations with missing values
+NameOfYourRawDataFile <- na.omit(NameOfYourRawDataFile)
+```
+
+The layout of the data can also have consequences for how well your R code works. R treats the data as if each row is from a single observation. For example, let's consider you were determining if there is a difference test scores in two separate classes. The data could be set up such that Class A is the title of the first column and below it are the test scores of 10 different students, and Class B is the title of the second column with it's students test scores below it. R woudl treat the first row as one observation when it is actually two, one test score from class A and one score from test B. Stacked data will have the title of the first column be Grades or Values, and the title of the second column Class. So the rows would then be set up as a single observation for a single student, showing their test score and the Class (A or B) that they belong to.
+
+You can use the stack() function to stack all of your data or select for certain values to stack.
+
+```{r}
+NewDataName <- stack(OldDataName)
+NewDataName <- stack(Variable1, select=c("Variable 2 Value a", "Variable 2 Value b"))
+```
+
+Once the data is set up how you want, you can look as some quick summary statistics. The mean and middle are different ways to look at the middle of the data set. You can also look at the dispersion of the data with the range, standard deviation, variance, standard error of the mean, and interquartile range.
+
+```{r}
+# mean
+mean(variable)
+# median
+median(variable)
+# range
+range(variable)
+# standard deviation
+sd(variable)
+# variance
+var(variable)
+# standard error of the mean. sqrt is the square root function. length returns the number of values in that variable
+SEM = sd(variable)/sqrt(length(variable))
+# interquartile range
+IQR(variable)
+```
+
+When working with quantitative data you should check to see if it is normally distributed. This is important when you eventually decide which statistical test to use as some of them assume that the data is normal. 
+
+You can check to see if the data is normal using the simple.eda function in the UsingR package. The simple.eda function will show you a histogram, boxplot, and normal Q-Q plot of the data. 
+
+A histogram will give you an idea of the distrbution of your variable by showing the frequency of each observed value. The graph should follow a bell shaped curve if the data is normal. 
+
+A boxplot shows the spread of the data and if there are any outliers. Normal data should only have 1 outlier for every 100 data points. So if you have a small data set but there are a lot of outliers (points that extend beyond the box and whiskers) in your boxplot it may not be normally disributed. 
+
+Q-Q plots are used to determine if the distribution of the data matches a normally distributed data set. If the points do not closely lie on the regression the plot creates then it is most likely not normally distributed.
+
+```{r}
+install.packages("UsingR")
+library(UsingR)
+simple.eda()
+```
 
 The Shapiro Wilks test is a way to statistically test if data is normal. This can be done using the shapiro.test function. The null hypothesis for this test is that the data is normal, so a p value less than 0.05 will reject the null and assume that the data is not normal. Therefore, if the p value returned is greater than 0.05 then the data is normal. This function will return some output that you don't need to look at. To focus on the p value use shapiro.test()$p.value.
 
-If the data is not normal, you may want to see if the data can be transformed and fit to be normal. This can be done by taking the log of the data. You can take the natural log and the log base 10 of the data and then run a Shapiro Wilks test to see if it is now normal. This can be done by blah
+```{r}
+shapiro.test()$p.value
+```
 
-If the data still isn't normal after transforming, then you should consider it to be not normal and then use non-parametric tests during your statistical analysis. Parametric tests are those that assume that data is normal and so are not suitable for non-normal data.
+If the data is not normal, you may want to see if the data can be transformed and fit to be normal. This can be done by taking the log of the data. You can take the natural log and the log base 10 of the data and then run a Shapiro Wilks test to see if it is now normal.
 
+```{r}
+# natural log
+shapiro.test(log(dataset$variable))
+# log base 10
+shapiro.test(log10(dataset$variable))
+```
 
+If the data still isn't normal after transforming, then you should consider it not normal and then use non-parametric tests during your statistical analysis. Parametric tests (such as the t test and ANOVA) are those that assume that data is normal. These are not suitable for analyzing non-normal data and you will have to determine which non-parametric test is appropriate when you begin to run statistical tests on your data.
 
+DATA VISUALIZATION
+Although statistical tests will determine if there is a statistically significant relationship between your variables, it can be easier to convey this information visually for the reader.
 
-DATA VISUALIZATION - Julie
-What type of variables are you working with? Numeric, categorical, logical, factor?? (same as categorical???)
-What visualization is best? Use kyla jackson cheatsheet
+There are many ways to visually represent data, but you should select one based on what is appropriate for the types of variables you are testing as well as how many variables. The variable you are testing will either be numeric or categorical (factor). You should also make decisions based on if your numeric variable is discrete or continuous.
+
+Below is the code for for different graphs you can make in R.
+
+```{r}
+# Bar graph/plot
+Height = c(mean(x),mean(y),mean(z))
+barplot(Height, xlab = "My x-axis label", ylab = "My y-axis label", names = c("Name of x", "Name of y", "Name of z"), cex.lab = 1.5)
+abline(h=0) # why is this here with it equal to 0?
+
+# Grouped bar graph
+install.packages("ggplot2")
+library(ggplot2)
+ggplot(data, aes(fill=condition, y=value, x=specie))
+geom_bar(position="dodge", stat="identity")
+
+# Histogram
+hist(variable, cex.lab = 1.5, main ="Main Title", breaks = 34, ylim = c(0,10))
+abline(v = mean(variable), lwd = 5)
+par(mfrow = c(1,1)) # I don't know what this means
+
+# Scatterplot
+plot(dataset, xlim = c(0.10), ylim = c(0,10), xlab = "My x-axis label", ylab = "My y-axis label", main = "Custom Title", pch = 16, cex, 1.2, cex.lab = 1.5)
+
+# Mosaic plot
+ggplot(data = dataset) +
+   geom_mosaic(aes(x = product(variable1, variable2), fill=variable1), na.rm=TRUE) + 
+  # OR
+mosaicplot(~ quantVariable + factorVariable, data = dataset, color = TRUE)
+
+# Strip chart
+ggplot(dataset) +
+  aes(x = as.numeric(factorVariable), y = quantVariable) +
+  geom_jitter(aes(color = factor(otherVariable)), na.rm=TRUE) +
+  theme_cowplot() +
+  theme(legend.position = "right") +
+  labs(color="Legend title") + 
+  xlab("My x-axis label for factor variable") + 
+  ylab("My y-axis label for quant variable")
+
+# Box plot, page 72 in textbook. x,y,z are different conditions of one variable
+boxplot(x,y,z, names = c("Name1","Name2","Name3"), xlab = "My x-axis label", ylab = "My y-axis label", cex.lab = 1.5, ylim = c(0,max(c(x,y,z))))
+```
+
 
 HYPOTHESIS TESTING - Ian
