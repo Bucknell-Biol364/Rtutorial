@@ -20,6 +20,25 @@ Save csv file into this folder
 Set folder as working directory
 Read csv file into R
 
+R Basics:
+
+Welcome to R for neuro 253!
+R is a program for data science. It is an extremely useful tool for manipulating, visualizing, and investigating data. It will allow you to explore data to formulate hypotheses and then go one step further to test them with statistical tests.  
+
+However, before we can do any of these data visualizations or analyses we wil first need data sets and a place to store and access both the data and the code you write to investigate them. 
+
+There are a ton of great sample data sets avalable online and even a few built in ones here in R, but for this course will will be using a data set from a lab similar to those you will be performing. The data set "neuro_253_Cleaned_Data" is a series of extracellular neuronal recordings from crayfish. It includes recordings of "spikes" which refer to firing of the neurons measured both before and after treatment with drugs. 
+
+This file is in the .csv format, an abbreviated for "comma separated values". You can create such a file from an excel document by selecting "save as" and the .csv format. 
+
+
+
+```{r Import Data}
+Neuron_Recording_Data <- read.csv("Neuro_253_Cleaned_Data.csv")
+View(Neuron_Recording_Data)
+```
+
+
 DATA EXPLORATION
 You can begin exploring your data set by looking at the head (first five rows) and tail (last five rows) of your dataset. You can also view the full dataset by typing the name of the file and running that line of code.
 
@@ -147,4 +166,79 @@ boxplot(x,y,z, names = c("Name1","Name2","Name3"), xlab = "My x-axis label", yla
 ```
 
 
-HYPOTHESIS TESTING - Ian
+HYPOTHESIS TESTING
+
+Now that we are familiar with the tools to explore our data let's put them into practice to formulate and test a hypothesis. 
+
+For practice let's test the hypothesis that treating with the drug pilocarpine increases spike rate.
+
+To start it would be helpful to group the data based on teh varibales oyu are most interested in. This is a paired data set meaning we have only one sample, but measurements corresponding to before and after a treatment. Therfore we will want to be able to group based on the type of treatment and the time of the recording. In this case that would mean creating groups for the pilocarpine drug trials for the control recordings (before drug treatment) and the experimental recordings (after drug treatment). 
+
+this concept of grouping can be accomplished using the "subset" function. Subsetting allows you to establish your own subsets within the data that you can reference within tests. 
+
+```{r}
+pilocarpine_control <- subset(Neuron_Recording_Data, Drug=="Pilocarpine")$Control_Spikes
+View(pilocarpine_control)
+```
+
+
+```{r}
+pilocarpine_experimental <- subset(Neuron_Recording_Data, Drug=="Pilocarpine")$Experimental_Spikes
+View(pilocarpine_experimental)
+```
+
+
+Now that we have our subsets of interest lets go ahead and visualize them to get an idea of their distributions visually. This can be done using the "simple.eda" function which will construct a few different graphs portraying the data in different ways. 
+
+```{r}
+simple.eda(pilocarpine_control)
+simple.eda(pilocarpine_experimental)
+```
+
+In order to proceed with testing this data, we need to first assess if it is normally distributed. This will dictate which types of tests are applicable. The shapiro.test function allows you to test the hypothesis that the data is normally distributed. It assumes a null hypothesis that the data follows a normal distribution and by including "$p.value" following our function we can extract just the important p-value information.   
+
+```{r}
+shapiro.test(pilocarpine_control)$p.value
+shapiro.test(pilocarpine_experimental)$p.value
+```
+
+Since both of our p-values are greater than .05 we fail to reject the null hypothesis that the data is normally distributed. Therefor we can now proceed with statistical tests designed to investigate normally distributed data sets.
+
+Had our sample not been normally distributed we would have to select different statistical tests, but I will elaborate on that more later. 
+
+Ultimately we will be testing the null hypothesis that there is no difference in the spike rate before and after the application of the drug pilocarpine. This can be written more concisely as:
+
+H0: Spike Rate (after) - Spike Rate(before) = 0
+
+Our alternative hypothesis is that pilocarpine increased spike rate or rather:
+
+HA: Spike Rate (after) - Spike Rate(before) > 0
+
+A paired t-test will allow us to probe these hypotheses using the "t.test"" function since the sample was found to be normally distributed.
+
+Had the data instead not been found to be normally distributed from our shapiro test we would have to instead perform a wilcox rank sum test, this test is non parametric meaning it is robust to non-normal data sets.  
+
+```{r}
+t.test(pilocarpine_experimental,pilocarpine_control, paired = TRUE, alternative = "greater")
+```
+
+We see from theoutput of our paired t-test that the p-value is less than .05. This leads us to reject our null hypothesis that the drug had no effect on spike rate. Therfore we can state that the drug pilocarpine significantly increased spike rate. 
+
+We can visualize this impact of the drug with a box plot depicting the difference betwee pre and post drug administration recordings. 
+
+If we put in both our experimental and our control subsets as our data for the boxplot we would get two separate boxplots, one for each subset that wouldbe identicel to the ones from their respective initial EDA's. This is not what we want as these are not two independent samples, but rather a paired data set from a single sample. To visualize the DIFFERENCE between the paired recordings let's create a single variable representing the differences. 
+
+```{r}
+Spike_rate_change <- pilocarpine_experimental - pilocarpine_control
+```
+
+Now we can create a boxplot of these differences with the following code:
+
+```{r}
+boxplot(Spike_rate_change,ylim = c(-10,40), cex.lab = 1.4, xlab = "Pre/Post Pilocarpine", ylab = "Change in Spike Rate (spikes/sec)")
+abline(h=0, lty = 3, lwd = 3)
+```
+
+To recap the framework outlined here will allow you to proceed from selecting a hypotheses of interest, subsetting the data based on the variables you are most interested in, visualizing those subsets and further assessing their normality, selecting the correct statistical test, and finally interpretting the results of that test with regards to your initial hypotheses.
+
+Now try it out with a different drug and hypothesis from the initial data set!
