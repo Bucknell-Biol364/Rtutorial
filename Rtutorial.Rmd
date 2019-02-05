@@ -10,11 +10,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
-R Tutorial for Animal Behavior 266 and Neuroscience 253 at Bucknell University
+R Tutorial for Animal Behavior 296 and Neuroscience 253 at Bucknell University
 
 R Basics:
 
-Welcome to R for neuro 253!
+Welcome to R for Neuro 253!
 
 R is a program for data science. It is an extremely useful tool for manipulating, visualizing, and investigating data. It will allow you to explore data to formulate hypotheses and then employ statistical tests to assess them.  
 
@@ -43,6 +43,8 @@ You can begin exploring your data set by looking at the head (first five rows) a
 
 Another issue you should determine from the start is if there are missing values in your dataset. If it is a dataset you have collected yourself this may be easy to determine if the dataset was small enough, but when using large data or data from another source you should make sure to check this. You can check for missing values (often represented as NA, but could potentially be -999 or something else) and then choose if you want to keep or omit them from the data set.
 
+Adapt to actually explore the data set. 
+
 ```{r}
 # Display full dataset
 DataFile
@@ -53,7 +55,7 @@ tail(DataFile)
 # Count missing values
 sum(is.na(DataFile))
 # Exclude observations with missing values
-neur <- na.omit(DataFile)
+NewDataFileName <- na.omit(DataFile)
 ```
 
 The layout of the data can also have consequences for how well your R code works. R treats the data as if each row is from a single observation. For example, let's consider you were determining if there is a difference test scores in two separate classes. The data could be set up such that Class A is the title of the first column and below it are the test scores of 10 different students, and Class B is the title of the second column with it's students test scores below it. R woudl treat the first row as one observation when it is actually two, one test score from class A and one score from test B. Stacked data will have the title of the first column be Grades or Values, and the title of the second column Class. So the rows would then be set up as a single observation for a single student, showing their test score and the Class (A or B) that they belong to.
@@ -165,6 +167,8 @@ ggplot(dataset) +
 boxplot(x,y,z, names = c("Name1","Name2","Name3"), xlab = "My x-axis label", ylab = "My y-axis label", cex.lab = 1.5, ylim = c(0,max(c(x,y,z))))
 ```
 
+Example graph with iris
+
 HYPOTHESIS TESTING
 
 Now that we are familiar with the tools to explore our data let's put them into practice to formulate and test a hypothesis. 
@@ -240,3 +244,8 @@ abline(h=0, lty = 3, lwd = 3)
 To recap the framework outlined here will allow you to proceed from selecting a hypotheses of interest, subsetting the data based on the variables you are most interested in, visualizing those subsets and further assessing their normality, selecting the correct statistical test, and finally interpretting the results of that test with regards to your initial hypotheses.
 
 Now try it out with a different drug and hypothesis from the initial data set!
+
+---Acknowledgments--- 
+Ian Vogel completed the R Basics and Hypothesis Testing sections.
+Julie Berhane completed the Data Exploration and Visualization sections.
+Additional edits made by each author to tailor the tutorial to NEUR 253 (Ian) and ANBE 296 (Julie).
