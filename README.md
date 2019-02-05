@@ -1,5 +1,5 @@
 # R Tutorial
-This tutorial is mean to assist students in Animal Behavior 296 and Neuroscience 253 at Bucknell University with data analysis throughout the semester.
+This tutorial is meant to assist students in Animal Behavior 296 and Neuroscience 253 at Bucknell University with data analysis throughout the semester.
 
 Before you begin, make sure you are on a computer that has R and RStudio installed.
 
