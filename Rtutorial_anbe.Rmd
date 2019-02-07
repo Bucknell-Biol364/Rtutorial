@@ -18,7 +18,9 @@ Welcome to R for Research Methods in Animal Behavior (ANBE296)!
 
 R is a program for data science. It is an extremely useful tool for manipulating, visualizing, and investigating data. It will allow you to explore data to formulate hypotheses and then employ statistical tests to assess them.  
 
-Just to give you the lay of the land, the window you are reading this in is where you will write text and code to work with data. Below is the console where code is executed. In the upper right is a window that will show your environment and history of edits. Finally in the bottom right is where you will find something called your working directory (Files tab), any graphs you create (Plots tab), packages that you have installed and that are included in the system library (Packages tab), and where inquires made by typing ? before a function or package name will be answered (Help tab). # What is the Viewer tab??
+Before diving into the tutorial, we want to begin by mentioning that the internet can be a great resource for learning R and finding code from other people who have done similar analyses. You can master R to the point where you are able to freely code and create your own functions, but for the most part everything you want to do with R has been done before and this code can be easily accessed online. This tutorial will teach you the basics, but we encourage you to use the internet to supplement your learning if you want to do more complicated analyses or visualizations.
+
+Just to give you the lay of the land, the window you are reading this in is where you will write text and code to work with data. Below is the console where code is executed. In the upper right is a window that will show your environment and history of edits. Finally in the bottom right is where you will find something called your working directory (Files tab), any graphs you create (Plots tab), packages that you have installed and that are included in the system library (Packages tab), and where inquires made by typing ? before a function or package name will be answered (Help tab). You can ignore the Viewer tab for now.
 
 Before we can do any data visualizations or analyses we will first need a place to store all of our data sets as well as the code we write to work with them. This place is called your working directory and you will need to create one for this exercise. 
 
@@ -50,6 +52,8 @@ You can begin exploring your data set by looking at the head (first five rows) a
 
 Another issue you should determine from the start is if there are missing values in your dataset. If it is a dataset you have collected yourself this may be easy to determine if the dataset was small enough, but when using large data or data from another source you should make sure to check this. You can check for missing values (often represented as NA, but could potentially be -999 or something else) and then choose if you want to keep or omit them from the data set.
 
+Here is some generic code for exploring a data set named DataFile. You can change DataFile to Obs in the code below to explore the data from the csv file.
+
 ```{r}
 # Display full dataset
 DataFile
@@ -60,14 +64,14 @@ tail(DataFile)
 # Count missing values
 sum(is.na(DataFile))
 # Exclude observations with missing values
-neur <- na.omit(DataFile)
+NewDataFileName <- na.omit(DataFile)
 ```
 
 The layout of the data can also have consequences for how well your R code works. R treats the data as if each row is from a single observation. For example, let's consider you were determining if there is a difference test scores in two separate classes. The data could be set up such that Class A is the title of the first column and below it are the test scores of 10 different students, and Class B is the title of the second column with it's students test scores below it. R woudl treat the first row as one observation when it is actually two, one test score from class A and one score from test B. Stacked data will have the title of the first column be Grades or Values, and the title of the second column Class. So the rows would then be set up as a single observation for a single student, showing their test score and the Class (A or B) that they belong to.
 
 You can use the stack() function to stack all of your data or stack data with particular values.
 
-Below is some generic code you can practice with. The data file you are working with does not need to be stacked, but it is still good to know.
+You can use the stack() function to stack all of your data or stack data with particular values. You will not need to use this function for this tutorial but it is still good to know if you encounter unstacked data in future data sets.
 
 ```{r}
 DataFileStacked <- stack(DataFile)
@@ -116,7 +120,7 @@ Q-Q plots are used to determine if the distribution of the data matches a normal
 install.packages("UsingR")
 library(UsingR)
 # simple.eda function doesn't seem that great with this dataset
-simple.eda(DataFile)
+# simple.eda(DataFile)
 ```
 
 The Shapiro Wilks test is a way to statistically test if data is normal. This can be done using the shapiro.test function. The null hypothesis for this test is that the data is normal, so a p value less than 0.05 will reject the null and assume that the data is not normal. Therefore, if the p value returned is greater than 0.05 then the data is normal. This function will return some output that you don't need to look at. To focus on the p value use shapiro.test(DataFile_Variable)$p.value.
@@ -142,13 +146,15 @@ Although statistical tests will determine if there is a statistically significan
 
 There are many ways to visually represent data, but you should select one based on what is appropriate for the types of variables you are testing as well as how many variables. The variable you are testing will either be numeric or categorical (factor). You should also make decisions based on if your numeric variable is discrete or continuous.
 
+The zip folder downloaded for this tutorial includes a helpful guide (KylaJacksonPlotTypes.png) for determining which visualization is best given your variables of interest.
+
 Below is the code for for different graphs you can make in R.
 
 ```{r}
 # Bar graph/plot
 Height = c(mean(x),mean(y),mean(z))
 barplot(Height, xlab = "My x-axis label", ylab = "My y-axis label", names = c("Name of x", "Name of y", "Name of z"), cex.lab = 1.5)
-abline(h=0) # why is this here with it equal to 0?
+abline(h=0)
 
 # Grouped bar graph
 install.packages("ggplot2")
@@ -159,7 +165,7 @@ geom_bar(position="dodge", stat="identity")
 # Histogram
 hist(variable, cex.lab = 1.5, main ="Main Title", breaks = 34, ylim = c(0,10))
 abline(v = mean(variable), lwd = 5)
-par(mfrow = c(1,1)) # I don't know what this means
+par(mfrow = c(1,1))
 
 # Scatterplot
 plot(dataset, xlim = c(0.10), ylim = c(0,10), xlab = "My x-axis label", ylab = "My y-axis label", main = "Custom Title", pch = 16, cex, 1.2, cex.lab = 1.5)
@@ -180,9 +186,22 @@ ggplot(dataset) +
   xlab("My x-axis label for factor variable") + 
   ylab("My y-axis label for quant variable")
 
-# Box plot, page 72 in textbook. x,y,z are different conditions of one variable
+# Box plot, x,y,z are different factors of one variable
 boxplot(x,y,z, names = c("Name1","Name2","Name3"), xlab = "My x-axis label", ylab = "My y-axis label", cex.lab = 1.5, ylim = c(0,max(c(x,y,z))))
+# OR
+# Box plot for one numeric and one categorical variable
+boxplot(NumericVariable ~ CategoricalVariable, data = DataFile, ylab = "My y-axis label", xlab = "My x-axis label", main = Title)
 ```
+
+As we mentioned before there are many sample data sets built into R. Iris is a data set that contains measurements for four features (sepal length, sepal width, petal length, and petal width) of three flower species (setosa, versicolor, and virginica). The four features are each a numeric variable while species is a factor (categorical) variable. 
+
+If we would like to visualize the distribution of petal width values for three species then this we can consult the KylaJacksonPlotTypes.png file to see which visualization is best for two variables where one is numeric and the other categorical. Our options are strip chart, box plot, multiple histogram, and cumulative frequency distributions. We will use box plot for this example.
+
+```{r}
+boxplot(Petal.Width ~ Species, data = iris, ylab = "Petal Width", xlab = "Flower Species", main = "Variation in Petal Width Among Three Flower Species")
+```
+
+Feel free to practice with other visualizations and variables within the Iris data set before moving on to the next section!
 
 HYPOTHESIS TESTING
 
@@ -192,7 +211,7 @@ For practice let's test the hypothesis that a juvenile will have longer play bou
 
 To start it would be helpful to group the data based on the variables you are most interested in. The variables of interest would be in the Focal Duration, Behavior, Actor, Subject, and Duration columns.
 
-Below is some code to first create a dataframe for every obervation where Nova is either the Actor or Subject during Social Play. The same code but for Newton is below.
+Below is some code to first create a dataframe for every obervation where Nova is either the Actor (initiates behavior) or Subject (receives behavior) during Social Play. The same code but for Newton is below.
 
 ```{r}
 Nova <- ResearchObs[ResearchObs$Actor=="Nv" | ResearchObs$Subject=="Nv",]
@@ -217,6 +236,13 @@ Total <- sum(ResearchObs$FocalDuration.s.)
 NovaPlayRate <- NovaPlayTotal/Total
 # Print play rate
 NovaPlayRate
+
+
+NewtonPlayTotal <- sum(NewtonPlay$Duration)
+# Play rate for Nova by dividing how long he played in every focal and total focal time
+NewtonPlayRate <- NewtonPlayTotal/Total
+# Print play rate
+NewtonPlayRate
 ```
 
 Now that we have two subsets for how much Nova played and how much Newton played, lets go ahead and visualize them to get an idea of their distributions visually. This can be done using the "simple.eda" function which will construct a few different graphs portraying the data in different ways. 
@@ -276,3 +302,8 @@ boxplot(NewtonPlay$Duration, at = 2, add = TRUE)
 To recap the framework outlined here will allow you to proceed from selecting a hypotheses of interest, subsetting the data based on the variables you are most interested in, visualizing those subsets and further assessing their normality, selecting the correct statistical test, and finally interpretting the results of that test with regards to your initial hypotheses.
 
 Now try it out with a different hypothesis using a different behavior or subjects from the initial data set!
+
+---Acknowledgments--- 
+Ian Vogel completed the R Basics and Hypothesis Testing sections.
+Julie Berhane completed the Data Exploration and Visualization sections.
+Additional edits made by each author to tailor the tutorial to NEUR 253 (Ian Vogel) and ANBE 296 (Julie Berhane).
