@@ -3,8 +3,8 @@ This tutorial is meant to assist students in Animal Behavior 296 and Neuroscienc
 
 Before you begin, make sure you are on a computer that has R and RStudio installed.
 
-You will first need to hit the green button "Clone or download" and select the "Download ZIP" option. This will download all of the files associated with this tutorial into a zip folder into your computer's Downloads folder. It should be called something like Rtutorial-master. You can keep this folder in your Downloads folder or move it to your Documents folder. Just be sure to remember where this folder is located.
+You will first need to hit the green "Clone or download" button and select the "Download ZIP" option. This will download all of the files associated with this tutorial into a zip folder in your computer's Downloads folder. It should be called something like Rtutorial-master. You can keep this folder in your Downloads folder or move it to your Documents folder. Just be sure to remember where this folder is located.
 
-In this folder you should open the file Rtutorial.R to begin the tutorial.
+In this folder you should open the file Rtutorial.R to begin. From there you will follow step by step instructions for how to analyze and visualize data, and have the opportunitity to practice running some code.
 
-Blah not done yet
+Good luck!
