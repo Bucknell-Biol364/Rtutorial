@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Drug,Run_Number,Control_Spikes,Experimental_Spikes
 Pilocarpine,1,42,52
 Pilocarpine,2,21,24
@@ -13,3 +14,20 @@ Carbachol,1,50,53
 Carbachol,2,49,65
 Carbachol,3,126,176
 Carbachol,4,152,80
+=======
+Drug,Run_Number,Control_Spikes,Experimental_Spikes
+Pilocarpine,1,42,52
+Pilocarpine,2,21,24
+Pilocarpine,3,23,44
+Pilocarpine,4,10,39
+Pilocarpine,5,27,53
+Nicotine,1,6,8
+Nicotine,2,11,21
+Nicotine,3,9,12
+Nicotine,4,13,32
+Nicotine,5,11,16
+Carbachol,1,50,53
+Carbachol,2,49,65
+Carbachol,3,126,176
+Carbachol,4,152,80
+>>>>>>> e828c8c921c61942d3413bf50fee9627f81b8900

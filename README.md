@@ -1,28 +1,10 @@
-# Rtutorial
-R Tutorial for Animal Behavior 266 and Neuroscience 253 at Bucknell University
+# R Tutorial
+This tutorial is meant to assist students in Animal Behavior 296 and Neuroscience 253 at Bucknell University with data analysis throughout the semester.
 
-BASIC
-Introduction of what R is
-Creating csv file for data
-Create a folder on your local device
-Save csv file into this folder
-Set folder as working directory
-Read csv file into R
+Before you begin, make sure you are on a computer that has R and RStudio installed.
 
-DATA EXPLORATION
-Check for completeness (missing values or NAs)
-Is the data stacked
-Gather summary statistics 
-  - where's the middle? (mean, median)
-  - dispersion? range, standard deviation, variance, standard error of mean, interquartile range
-Are quantitative data normally distributed?
-  - check normality using histogram, boxplot, Q-Q plot, simple.eda
-  - statistical check with shapiro something test
-  - can the data be transformed? check if natural log and log base 10 is normal
-  - if not, consider data to be non-parametric
+You will first need to hit the green "Clone or download" button and select the "Download ZIP" option. This will download all of the files associated with this tutorial into a zip folder in your computer's Downloads folder. It should be called something like Rtutorial-master. You can keep this folder in your Downloads folder or move it to your Documents folder. Just be sure to remember where this folder is located.
 
-DATA VISUALIZATION
-What type of variables are you working with? Numeric, categorical, logical, factor?? (same as categorical???)
-What visualization is best? Use kyla jackson cheatsheet
+In this folder you should open the file Rtutorial.R to begin. From there you will follow step by step instructions for how to analyze and visualize data, and have the opportunitity to practice running some code.
 
-HYPOTHESIS TESTING
+Good luck!
