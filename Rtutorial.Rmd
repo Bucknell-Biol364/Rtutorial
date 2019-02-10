@@ -47,6 +47,17 @@ View(Neuron_Recording_Data)
 
 You now have a data set in R that is ready to be manipulated using the commands within this document. 
 
+General Syntax:
+
+The '<-' symbol incdicates assignment and allows you to create a variable (for instance in the previous code you can see that we used this to create the data frame for our data set)
+
+To access a specific variable you can use the dollar sign. For instance to select a specific drug within this data set you would want to use Neuron_Recording_Data$drug name. 
+
+R has many built in functions available that can be used to perform some sort of action on existing variables. To perform a function on a variable you use the syntax function(variable).
+
+
+
+
 Data Exploration:
 
 You can begin exploring your data set by looking at the head (first five rows) and tail (last five rows) of your dataset. You can also view the full dataset by typing the name of the file and running that line of code.
@@ -98,17 +109,11 @@ IQR(DataFile$Variable)
 
 Try these commands with your dataset and pay close attention to what it tells you about this dataset in particular. What does it mean if the data has a large range? a small interquartile distance? Are the mean and median similar?
 
-
 When working with quantitative data you should check to see if it is normally distributed. This is important when you eventually decide which statistical test to use as some of them assume that the data is normal. 
 
 You can check to see if the data is normal using the simple.eda function in the UsingR package. The simple.eda function will show you a histogram, boxplot, and normal Q-Q plot of the data. 
 
 A histogram will give you an idea of the distrbution of your variable by showing the frequency of each observed value. The graph should follow a bell shaped curve if the data is normal. 
-
-Try the simple.eda function
-```{r}
-simple.eda()
-```
 
 A boxplot shows the spread of the data and if there are any outliers. Normal data should only have 1 outlier for every 100 data points. So if you have a small data set but there are a lot of outliers (points that extend beyond the box and whiskers) in your boxplot it may not be normally disributed. 
 
@@ -117,8 +122,25 @@ Q-Q plots are used to determine if the distribution of the data matches a normal
 ```{r}
 install.packages("UsingR")
 library(UsingR)
-simple.eda(DataFile)
+simple.eda(Neuron_Recording_Data)
 ```
+
+Try the simple.eda function with your neuro data set. Does the distribution appear normal - does the histogram show the characteristic bell shape? In this case the output will be a little funky because of the way the data is organized. Instead of the three different graph types we would normally expect, we instead get an output of a stragne graph and three histograms because we did not indicate a variable to inspect, so each graph depicts the distribution of one column from the dataframe. 
+
+The first two graphs are not all that helpful as they just reveal that there were 5 runs for pilocarpine and nicotine,but only four for carbachol. 
+
+The last two graphs show the distributions for control and experimental spikes respectively. Let's look a little closer at teh control spikes data. 
+
+Try the simple.eda function again, but this time with just the control spikes recordings.
+Hint: remember the selection syntax we discussed earlier "dataset$variable"." The variable here being the column name we are interested in
+
+```{r}
+simple.eda()
+```
+
+
+Do the control spikes data look normal? Although graphs depicting distributions can be helpful for giving an overview of potential normality, we want to be completely confident on whether the data set is normal.
+
 
 The Shapiro Wilks test is a way to statistically test if data is normal. This can be done using the shapiro.test function. The null hypothesis for this test is that the data is normal, so a p value less than 0.05 will reject the null and assume that the data is not normal. Therefore, if the p value returned is greater than 0.05 then the data is normal. This function will return some output that you don't need to look at. To focus on the p value use shapiro.test(DataFile_Variable)$p.value.
 
@@ -273,7 +295,8 @@ abline(h=0, lty = 3, lwd = 3)
 
 To recap the framework outlined here will allow you to proceed from selecting a hypotheses of interest, subsetting the data based on the variables you are most interested in, visualizing those subsets and further assessing their normality, selecting the correct statistical test, and finally interpretting the results of that test with regards to your initial hypotheses.
 
-Now try it out with a different drug and hypothesis from the initial data set!
+
+****IN this hypothesis testing section we took you through how to test a given hypothesis. Now its your turn! Develop your own hypothesis and refer back to this example to guide your investigation of it. You could potentiall pick a different drug for instacne and see if it too alters the spike rate significantly!
 
 ---Acknowledgments--- 
 Ian Vogel completed the R Basics and Hypothesis Testing sections.
