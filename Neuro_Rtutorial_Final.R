@@ -114,14 +114,14 @@ library(UsingR)
 simple.eda(Neuron_Recording_Data)
 
 
-#Try the simple.eda function with your neuro data set. Does the distribution appear normal - does the histogram show the characteristic bell shape? In this case the output will be a little funky because of the way the data is organized. Instead of the three different graph types we would normally expect, we instead get an output of a stragne graph and three histograms because we did not indicate a variable to inspect, so each graph depicts the distribution of one column from the dataframe. 
+#Try the simple.eda function with your neuro data set. Does the distribution appear normal - does the histogram show the characteristic bell shape? In this case the output will be a little funky because of the way the data is organized. Instead of the three different graph types we would normally expect, we instead get an output of a strange graph and three histograms because we did not indicate a variable to inspect, so each graph depicts the distribution of one column from the dataframe. 
 
-#The first two graphs are not all that helpful as they just reveal that there were 5 runs for pilocarpine and nicotine,but only four for carbachol. 
+#The first two graphs are not all that helpful as they just reveal that there were 5 runs for pilocarpine and nicotine, but only four for carbachol. 
 
-#The last two graphs show the distributions for control and experimental spikes respectively. Let's look a little closer at teh control spikes data. 
+#The last two graphs show the distributions for control and experimental spikes respectively. Let's look a little closer at the control spikes data. 
 
 #Try the simple.eda function again, but this time with just the control spikes recordings.
-#Hint: remember the selection syntax we discussed earlier "dataset$variable"." The variable here being the column name we are interested in
+#Hint: remember the selection syntax we discussed earlier "dataset$variable"." The variable here being the column name we are interested in, "Control_Spikes"
 
 simple.eda()
 
@@ -202,6 +202,7 @@ boxplot(Petal.Width ~ Species, data = iris, ylab = "Petal Width", xlab = "Flower
 
 #Feel free to practice with other visualizations and variables within the Iris data set before moving on to the next section!
 
+
 #HYPOTHESIS TESTING
 
 #Now that we are familiar with the tools to explore our data let's put them into practice to formulate and test a hypothesis. 
@@ -252,7 +253,13 @@ shapiro.test(pilocarpine_experimental)$p.value
 t.test(pilocarpine_experimental,pilocarpine_control, paired = TRUE, alternative = "greater")
 
 
-#***Had the data instead not been found to be normally distributed from our shapiro test we would have to instead perform a wilcox rank sum test, this test is non parametric meaning it is robust to non-normal data sets.
+#Working with non-normal data
+
+#***Had the data instead not been found to be normally distributed from our shapiro test we would have to instead perform a wilcox rank sum test, this test is non parametric meaning it is robust to non-normal data sets. 
+#The syntax for a wilcox rank sum test is - wilcox.test(datasubset1,datasubset2)
+
+
+#Visualizing Paired Data Sets
 
 #We see from the output of our paired t-test that the p-value is less than .05. This leads us to reject our null hypothesis that the drug had no effect on spike rate. Therfore we can state that the drug pilocarpine significantly increased spike rate. 
 
@@ -273,7 +280,20 @@ abline(h=0, lty = 3, lwd = 3)
 #To recap the framework outlined here will allow you to proceed from selecting a hypotheses of interest, subsetting the data based on the variables you are most interested in, visualizing those subsets and further assessing their normality, selecting the correct statistical test, and finally interpretting the results of that test with regards to your initial hypotheses.
 
 
+#Applications and Questions:
+
 #****IN this hypothesis testing section we took you through how to test a given hypothesis. Now its your turn! Develop your own hypothesis and refer back to this example to guide your investigation of it. You could potentiall pick a different drug for instacne and see if it too alters the spike rate significantly!
+
+#1. Once you subset your data based on the variables you would like to investigate, is the data normally distributed?
+#Hint: remember the simple.eda function and the shapiro.test function
+
+#2. What are the null and alternative hypotheses for your investigation?
+
+#3. Based on the output from your shapiro test, what type of statistical test will you use to test your hypothesis?
+
+#4. Does your statistical test indicate that you can reject your null hypothesis?
+
+#5. How will you visualize your findings? Which of the graphs introduced earlier will best demonstrate your question?
 
 #---Acknowledgments--- 
 #Ian Vogel completed the R Basics and Hypothesis Testing sections.
