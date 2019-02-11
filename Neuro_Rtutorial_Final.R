@@ -29,9 +29,13 @@
 #create (Plots tab), packages that you have installed and that are included in
 #the system library (Packages tab), and where inquires made by typing ? before
 #a function or package name will be answered (Help tab). You can ignore the
-#Viewer tab for now.
+#Viewer tab for now. A quick note, on the graphs tab you can navigate between 
+#the different plots you create using the forward and back arrows in the top 
+#left corner of the screen
 
-#Setting Your Working Directory
+
+#Setting Your Working Directory:
+
 #Before we can do any data visualizations or analyses we will first need a place 
 #to store all of our data sets as well as the code we write to work with them. 
 #This place is called your working directory and you will need to create one for
@@ -49,18 +53,19 @@
 #need.
 
 
-#R Code Vs Text 
+#R Code Vs Comments:
 
-#Instructions throughout this file will appear in green due to the '#' at the 
-#start of each line. Code appears as black text. When you encounter code 
-#throughout this document you will either need to run it as is or modify it 
-#according to the instructions and then run it.
+#Instructions throughout this file will appear in green due to the '#' 
+#indicating that it is a comment at the start of each line. 
+#Code appears as black text. When you encounter code throughout this document
+#you will either need to run it as is or modify it according to the instructions
+#and then run it.
 
 #You can run code by highlighting the line(s) of code you are interested in and 
 #hitting "Run" at the top of this window.
 
 
-#Importing/Reading in Data Sets
+#Importing/Reading in Data Sets:
 
 #Next we want some data to play with! There are a ton of great sample data sets 
 #avalable online and even a few built in ones here in R, but for this course we 
@@ -120,24 +125,25 @@ View(Neuron_Recording_Data)
 #to determine if the dataset was small enough, but when using large data or data
 #from another source you should make sure to check this. You can check for
 #missing values (often represented as NA, but could potentially be -999 or 
-#something else) and then choose if you want to keep or omit them from the data set.
+#something else, but in this case our data set actually has no missing values) 
+#and then choose if you want to keep or omit them from the data set.
 
 #Here is some generic code for exploring a data set named DataFile. Now type them
-#in yourself in the order they appear by changing the word "Datafile" to 
-#"Neuro_253_Cleaned_Data.csv".
+#in yourself in the order they appear by changing the word "Datafile" to
+#to your data frame "Neuron_Recording_Data".
 
 
 # Display full dataset
 DataFile
 # Display first five rows only (useful for large datasets)
-head(DataFile)
+head()
 # Display last five rows only
 tail(DataFile)
 # Count missing values
 sum(is.na(DataFile))
 # Exclude observations with missing values
-NewDataFileName <- na.omit(DataFile)
-
+# NewDataFileName <- na.omit(DataFile)
+# In this case our data has no missing values so you will not need to omit anything
 
 #The layout of the data can also have consequences for how well your R code works.
 #R treats the data as if each row is from a single observation. For example,
@@ -152,7 +158,9 @@ NewDataFileName <- na.omit(DataFile)
 #for a single student, showing their test score and the Class (A or B) that they
 #belong to.
 
-#You can use the stack() function to stack all of your data or stack data with particular values. You will not need to use this function for this tutorial but it is still good to know if you encounter unstacked data in future data sets.
+# You can use the stack() function to stack all of your data or stack data with 
+# particular values. You will not need to use this function for this tutorial but
+# it is still good to know if you encounter unstacked data in future data sets.
 
 # The stacked function is commented out because it should not be used.
 #DataFileStacked <- stack(DataFile)
@@ -214,13 +222,16 @@ library(UsingR)
 simple.eda(Neuron_Recording_Data)
 
 
-# Try the simple.eda function with your neuro data set. Does the distribution 
+# Try the simple.eda function with the Neuron_Recording_Data dataframe. Does the distribution 
 # appear normal - does the histogram show the characteristic bell shape? In 
 # this case the output will be a little funky because of the way the data is 
-# organized. Instead of the three different graph types we would normally expect,
-# we instead get an output of a strange graph and three histograms because we did
-# not indicate a variable to inspect, so each graph depicts the distribution of
-# one column from the dataframe. 
+# organized and you will get an error. Instead of the three different graph 
+# types we would normally expect, we instead get an output of a strange graph 
+# and three histograms because we did not indicate a variable to inspect, 
+# so each graph depicts the distribution of one column from the dataframe. 
+
+#*remember to use the arrows in the top left of the plots tab within
+# the bottom right window to switch between the multiple graphs produced
 
 #The first two graphs are not all that helpful as they just reveal that there 
 #were 5 runs for pilocarpine and nicotine, but only four for carbachol. 
@@ -230,20 +241,31 @@ simple.eda(Neuron_Recording_Data)
 
 #Try the simple.eda function again below, but this time with just the control spikes
 #recordings.
-#Hint: remember the selection syntax we discussed earlier "dataset$variable"." The variable here being the column name we are interested in, "Control_Spikes"
+#Hint: remember the selection syntax we discussed earlier "dataset$variable".
+#The variable here being the column name we are interested in, "Control_Spikes"
+
 
 simple.eda()
+
 
 #Do the control spikes data look normal? Although graphs depicting distributions
 #can be helpful for giving an overview of potential normality, we want to be 
 #completely confident on whether the data set is normal.
 
 
-#The Shapiro Wilks test is a way to statistically test if data is normal. This can be done using the shapiro.test function. The null hypothesis for this test is that the data is normal, so a p value less than 0.05 will reject the null and assume that the data is not normal. Therefore, if the p value returned is greater than 0.05 then the data is normal. This function will return some output that you don't need to look at. To focus on the p value use shapiro.test(DataFile_Variable)$p.value.
+#Testing for Normality
+
+# The Shapiro Wilks test is a way to statistically test if data is normal.
+# This can be done using the shapiro.test function. The null hypothesis for 
+# this test is that the data is normal, so a p value less than 0.05 will reject
+# the null and assume that the data is not normal. Therefore, if the p value 
+# returned is greater than 0.05 then the data is normal. This function will 
+# return some output that you don't need to look at. To focus on the p value
+# use shapiro.test(DataFile_Variable)$p.value.
 
 shapiro.test(DataFile$Variable)$p.value
 
-#If the data is not normal, you may want to see if the data can be transformed 
+# If the data is not normal, you may want to see if the data can be transformed 
 # and fit to be normal. This can be done by taking the log of the data. You can
 # take the natural log and the log base 10 of the data and then run a Shapiro
 # Wilks test to see if it is now normal.
@@ -253,12 +275,13 @@ shapiro.test(log(DataFile$Variable))
 # log base 10
 shapiro.test(log10(DataFile$Variable))
 
-#If the data still isn't normal after transforming, then you should consider it
+# If the data still isn't normal after transforming, then you should consider it
 # not normal and then use non-parametric tests during your statistical analysis.
 # Parametric tests (such as the t test and ANOVA) are those that assume that
 # data is normal. These are not suitable for analyzing non-normal data and 
 # you will have to determine which non-parametric test is appropriate when 
 # you begin to run statistical tests on your data.
+
 
 #Data Visualization:
 
@@ -335,6 +358,9 @@ ggplot(DataFile) +
 boxplot(NumericVariable ~ CategoricalVariable, data = DataFile, 
         ylab = "My y-axis label", xlab = "My x-axis label", main = "Title of plot")
 
+
+
+#Visualization Examples and Practice
 
 # As we mentioned before there are many sample data sets built into R. Iris is a
 # data set that contains measurements for four features (sepal length, sepal
@@ -460,11 +486,12 @@ t.test(pilocarpine_experimental,pilocarpine_control, paired = TRUE, alternative 
 
 # We see from the output of our paired t-test that the p-value is less than .05. 
 # This leads us to reject our null hypothesis that the drug had no effect on 
-# spike rate. Therfore we can state that the drug pilocarpine significantly
-# increased spike rate. 
+# spike rate. The mean difference of the spike rates is 17.8 which indicates 
+# that pilocarpine increased spiek rate by 17.8 spikes per second on average.
+# Therfore we can state that the drug pilocarpine significantly increased spike rate. 
 
 # We can visualize this impact of the drug with a box plot depicting the 
-# difference betwee pre and post drug administration recordings. 
+# difference between pre and post drug administration recordings. 
 
 # If we put in both our experimental and our control subsets as our data for
 # the boxplot we would get two separate boxplots, one for each subset that
@@ -479,11 +506,17 @@ Spike_rate_change <- pilocarpine_experimental - pilocarpine_control
 #Now we can create a boxplot of these differences with the following code:
 
 
-boxplot(Spike_rate_change,ylim = c(-10,40), cex.lab = 1.4, xlab = "Pre/Post Pilocarpine", ylab = "Change in Spike Rate (spikes/sec)")
+boxplot(Spike_rate_change,ylim = c(-10,40), cex.lab = 1.4, 
+        xlab = "Pre/Post Pilocarpine", ylab = "Change in Spike Rate
+        (spikes/sec)")
 abline(h=0, lty = 3, lwd = 3)
 
+# After running our code to create the boxplot we see that the entire boxplot
+# lies above zero which helps to visualize not only whether pilocarpine affected
+# neuronal activity, but how it affected it. From the graph we can see that the 
+# drug increased spike rate compared to its respective control trials.
 
-# To recap the framework outlined here will allow you to proceed from
+# To recap, the framework outlined here will allow you to proceed from
 # selecting a hypotheses of interest, subsetting the data based on the 
 # variables you are most interested in, visualizing those subsets and
 # further assessing their normality, selecting the correct statistical 
@@ -499,9 +532,10 @@ abline(h=0, lty = 3, lwd = 3)
 # pick a different drug for instance and see if it too alters the spike rate 
 # significantly!
 
+
 # 1. Once you subset your data based on the variables you would like to 
 # investigate, is the data normally distributed?
-#Hint: remember the simple.eda function and the shapiro.test function
+# Hint: remember the simple.eda function and the shapiro.test function
 
 
 # 2. What are the null and alternative hypotheses for your investigation?
@@ -520,4 +554,5 @@ abline(h=0, lty = 3, lwd = 3)
 #---Acknowledgments--- 
 #Ian Vogel completed the R Basics and Hypothesis Testing sections.
 #Julie Berhane completed the Data Exploration and Visualization sections.
-#Additional edits made by each author to tailor the tutorial to NEUR 253 (Ian Vogel) and ANBE 296 (Julie Berhane).
+#Additional edits made by each author to tailor the tutorial to
+#NEUR 253(Ian Vogel) and ANBE 296 (Julie Berhane).
