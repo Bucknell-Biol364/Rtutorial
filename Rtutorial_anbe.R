@@ -1,5 +1,5 @@
 ---
-title: "205Tutorial"
+title: "Rtutorial"
 author: "Ian Vogel & Julie Berhane"
 output: html_document
 ---
