@@ -17,13 +17,15 @@
 
 #To create a working directory you should first create a folder in a location on this computer that you can readily access. We recommend creating the folder in Documents. Next select the "Session" tab located above this window near where it says "File" and "Edit". Next click "Set Working Directory" and select "Choose Directory..." from the drop down menu. Within the file explorer that will appear, navigate to where you stored the new folder you just created. Select the folder and click "Ok" to set it as your working directory. In this case you will want to move the folder you cloned from github to your newly established working directory so that you can readily access the files you will need.
 
-#You can also set the working directory with code using the function below and typing out the full file path.
 
-setwd("~/Documents/WorkingDirectoryFolderName")
+#R Code Vs Text 
 
-# If you left the zip file in your Downloads folder, change Documents to be Downloads
-setwd("~/Documents/Rtutorial")
+#Instructions throughout this file will appear in green due to the '#' at the start of each line. Code appears as black text. When you encounter code throughout this document you will either need to run it as is or modify it according to the instructions and then run it
 
+#You can run code by highlighting the line(s) of code you are interested in hit "Run" at the top of this window.
+
+
+#Importing/Reading in Data Sets
 
 #Next we want some data to play with! There are a ton of great sample data sets avalable online and even a few built in ones here in R, but for this course we will be using a data set from a lab similar to those you will be performing this semester. The data set "Neuro_253_Cleaned_Data" is a series of extracellular neuronal recordings from crayfish. It includes recordings of "spikes" which refers to the firing of the neurons in the units of action potentials per second measured both before and after treatment with drugs. 
 
@@ -36,6 +38,7 @@ Neuron_Recording_Data <- read.csv("Neuro_253_Cleaned_Data.csv")
 View(Neuron_Recording_Data)
 
 #You now have a data set in R that is ready to be manipulated using the commands within this document. 
+
 
 #General Syntax:
   
@@ -76,7 +79,7 @@ NewDataFileName <- na.omit(DataFile)
 DataFileStacked <- stack(DataFile)
 DataFileStackere <- stack(VariableA, select=c("Variable B value 1", "Variable B value 2"))
 
-Once the data is set up how you want, you can look at some quick summary statistics. The mean and middle are different ways to look at the middle of the data set. You can also look at the dispersion of the data with the range, standard deviation, variance, standard error of the mean, and interquartile range. When trying to find the mean, median, etc. of a specific variable you must first specify the dataset you are looking at and then the variable you want to focus on. This is done in the format DataFile$Variable.
+#Once the data is set up how you want, you can look at some quick summary statistics. The mean and middle are different ways to look at the middle of the data set. You can also look at the dispersion of the data with the range, standard deviation, variance, standard error of the mean, and interquartile range. When trying to find the mean, median, etc. of a specific variable you must first specify the dataset you are looking at and then the variable you want to focus on. This is done in the format DataFile$Variable. To start off lets look at the variable Control_Spikes
 
 # mean
 mean(DataFile$Variable)
