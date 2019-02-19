@@ -184,6 +184,15 @@ ResearchObs
 # explore are those that are included in that data set. Variable names can be
 # found as the name of each column.
 
+# I've included a file called NatalieGroom.csv in the folder for this tutorial.
+# It is a subset of the full CapuchinObs data set that focuses on instances
+# when the capuchin Natalie participated in grooming, either as the initiator 
+# (Actor) or recipient (Subject). You will first have to read in the data using 
+# the code below. Then try to explore the duration of Natalie's grooming bouts. 
+# Duration is a variable included in this data set.
+
+NatalieGroom <- read.csv("NatalieGroom.csv")
+
 # mean
 mean(DataFile$Variable)
 # median
