@@ -1,0 +1,91 @@
+"","Number","ObserverName","ObserverType","Use","FocalDuration.s.","ScanFrequency","Date","SessionStartTime","FocalStartTime","FocalEndTime","FocalAnimal","FocalDuration","BehaviorCategory","Behavior","Actor","Subject","BehaviorStartTime","BehaviorStopTime","Duration"
+"122",99,"Layla","Student","Research",900,60,"2017-04-15","12:59:35","13:21:48","13:36:48","Nt",15,"Affiliative","Groom","Nt","Sv","13:35:07","13:35:23",16
+"160",13,"Amelia","Student","Research",900,60,"2017-04-21","14:35:41","14:35:49","14:50:49","Nb",15,"Affiliative","Groom","Nb","Nt","14:37:02","14:38:33",91
+"161",13,"Amelia","Student","Research",900,60,"2017-04-21","14:35:41","14:35:49","14:50:49","Nb",15,"Affiliative","Groom","Nb","Nt","14:37:02","14:38:33",91
+"362",113,"Layla","Student","Research",900,60,"2017-04-23","13:20:30","13:20:44","13:35:44","Nt",15,"Affiliative","Groom","Nt","Nr","13:21:33","13:22:04",31
+"363",113,"Layla","Student","Research",900,60,"2017-04-23","13:20:30","13:20:44","13:35:44","Nt",15,"Affiliative","Groom","Nt","Nr","13:21:33","13:22:04",31
+"366",112,"Layla","Student","Research",900,60,"2017-04-23","13:20:30","13:20:44","13:35:44","Nt",15,"Affiliative","Groom","Nt","Nb","13:22:37","13:23:38",61
+"367",112,"Layla","Student","Research",900,60,"2017-04-23","13:20:30","13:20:44","13:35:44","Nt",15,"Affiliative","Groom","Nt","Nb","13:22:37","13:23:38",61
+"374",114,"Layla","Student","Research",900,60,"2017-04-23","13:20:30","13:20:44","13:35:44","Nt",15,"Affiliative","Groom","Nt","Nw","13:29:17","13:31:03",106
+"375",114,"Layla","Student","Research",900,60,"2017-04-23","13:20:30","13:20:44","13:35:44","Nt",15,"Affiliative","Groom","Nt","Nw","13:29:17","13:31:03",106
+"384",111,"Layla","Student","Research",900,60,"2017-04-23","13:20:30","13:20:44","13:35:44","Nt",15,"Affiliative","Groom","Nb","Nt","13:34:02","13:34:22",20
+"385",111,"Layla","Student","Research",900,60,"2017-04-23","13:20:30","13:20:44","13:35:44","Nt",15,"Affiliative","Groom","Nb","Nt","13:34:02","13:34:22",20
+"1024",367,"Amelia","Student","Research",900,60,"2017-05-05","14:00:30","14:24:22","14:39:22","Nt",15,"Affiliative","Groom","Nt","Mt","14:33:09","14:34:08",59
+"1033",369,"Amelia","Student","Research",900,60,"2017-05-05","14:00:30","14:24:22","14:39:22","Nt",15,"Affiliative","Groom","Nt","Nr","14:37:02","14:37:12",10
+"1034",368,"Amelia","Student","Research",900,60,"2017-05-05","14:00:30","14:24:22","14:39:22","Nt",15,"Affiliative","Groom","Nt","Mt","14:37:17","14:38:14",57
+"1038",370,"Amelia","Student","Research",900,60,"2017-05-05","14:00:30","14:24:22","14:39:22","Nt",15,"Affiliative","Groom","Nt","Nr","14:38:49","14:39:22",33
+"1279",48,"Corinne","Student","Research",900,60,"2017-06-28","13:30:08","13:45:36","14:00:36","Mt",15,"Affiliative","Groom","Mt","Nt","13:54:54","13:57:42",168
+"1386",38,"Corinne","Student","Research",900,60,"2017-07-07","9:36:25","9:52:03","10:07:03","Nt",15,"Affiliative","Groom","Nt","Nr","9:53:24","9:53:58",34
+"1389",39,"Corinne","Student","Research",900,60,"2017-07-07","9:36:25","9:52:03","10:07:03","Nt",15,"Affiliative","Groom","Nt","Nw","9:56:16","9:57:29",73
+"1390",37,"Corinne","Student","Research",900,60,"2017-07-07","9:36:25","9:52:03","10:07:03","Nt",15,"Affiliative","Groom","Nt","Nm","9:57:33","9:58:07",34
+"1392",40,"Corinne","Student","Research",900,60,"2017-07-07","9:36:25","9:52:03","10:07:03","Nt",15,"Affiliative","Groom","Nt","Nw","9:59:46","9:59:54",8
+"1562",33,"Corinne","Student","Research",900,60,"2017-07-26","9:00:28","9:15:54","9:30:54","Mt",15,"Affiliative","Groom","Nt","Mt","9:16:13","9:16:22",9
+"1563",33,"Corinne","Student","Research",900,60,"2017-07-26","9:00:28","9:15:54","9:30:54","Mt",15,"Affiliative","Groom","Nt","Mt","9:16:13","9:16:22",9
+"1582",36,"Corinne","Student","Research",900,60,"2017-07-26","9:00:28","9:31:23","9:46:23","Nt",15,"Affiliative","Groom","Nt","Mt","9:39:20","9:41:32",132
+"1583",36,"Corinne","Student","Research",900,60,"2017-07-26","9:00:28","9:31:23","9:46:23","Nt",15,"Affiliative","Groom","Nt","Mt","9:39:20","9:41:32",132
+"1588",37,"Corinne","Student","Research",900,60,"2017-07-26","9:00:28","9:31:23","9:46:23","Nt",15,"Affiliative","Groom","Nt","Mt","9:42:15","9:42:54",39
+"1589",37,"Corinne","Student","Research",900,60,"2017-07-26","9:00:28","9:31:23","9:46:23","Nt",15,"Affiliative","Groom","Nt","Mt","9:42:15","9:42:54",39
+"1598",39,"Corinne","Student","Research",900,60,"2017-07-26","9:00:28","9:31:23","9:46:23","Nt",15,"Affiliative","Groom","Nt","Ny","9:44:36","9:45:39",63
+"1599",39,"Corinne","Student","Research",900,60,"2017-07-26","9:00:28","9:31:23","9:46:23","Nt",15,"Affiliative","Groom","Nt","Ny","9:44:36","9:45:39",63
+"1602",38,"Corinne","Student","Research",900,60,"2017-07-26","9:00:28","9:31:23","9:46:23","Nt",15,"Affiliative","Groom","Nt","Mt","9:45:42","9:46:23",41
+"1603",38,"Corinne","Student","Research",900,60,"2017-07-26","9:00:28","9:31:23","9:46:23","Nt",15,"Affiliative","Groom","Nt","Mt","9:45:42","9:46:23",41
+"1778",36,"Layla","Student","Research",900,60,"2017-09-05","10:11:09","11:00:34","11:15:34","Mt",15,"Affiliative","Groom","Nt","Mt","11:12:20","11:13:04",44
+"1870",30,"Allie","Student","Research",900,60,"2017-10-04","8:44:45","9:34:28","9:49:28","Nt",15,"Affiliative","Groom","De","Nt","9:42:20","9:43:19",59
+"1871",31,"Allie","Student","Research",900,60,"2017-10-04","8:44:45","9:34:28","9:49:28","Nt",15,"Affiliative","Groom","Nb","Nt","9:43:26","9:49:28",362
+"1873",38,"Layla","Student","Research",900,60,"2017-10-04","14:35:41","14:36:27","14:51:27","Nb",15,"Affiliative","Groom","Nb","Nt","14:38:25","14:38:32",7
+"1944",106,"Layla","Student","Research",900,60,"2017-10-04","14:35:41","15:28:41","15:43:41","Nb",15,"Affiliative","Groom","Nb","Nt","15:30:06","15:30:48",42
+"2198",358,"Layla","Student","Research",900,60,"2017-10-25","14:45:51","15:02:20","15:17:20","Nt",15,"Affiliative","Groom","Nl","Nt","15:05:19","15:06:19",60
+"2199",359,"Layla","Student","Research",900,60,"2017-10-25","14:45:51","15:02:20","15:17:20","Nt",15,"Affiliative","Groom","Nt","Nr","15:08:48","15:09:29",41
+"2203",360,"Layla","Student","Research",900,60,"2017-10-25","14:45:51","15:02:20","15:17:20","Nt",15,"Affiliative","Groom","Nt","Nw","15:13:36","15:14:39",63
+"2206",361,"Layla","Student","Research",900,60,"2017-10-25","14:45:51","15:02:20","15:17:20","Nt",15,"Affiliative","Groom","Nt","Nw","15:16:04","15:17:20",76
+"2337",500,"Allie","Student","Research",900,60,"2017-11-01","8:45:18","9:32:21","9:47:21","Mt",15,"Affiliative","Groom","Mt","Nt","9:33:13","9:33:37",24
+"2339",501,"Allie","Student","Research",900,60,"2017-11-01","8:45:18","9:32:21","9:47:21","Mt",15,"Affiliative","Groom","Mt","Nt","9:34:30","9:34:43",13
+"2341",502,"Allie","Student","Research",900,60,"2017-11-01","8:45:18","9:32:21","9:47:21","Mt",15,"Affiliative","Groom","Mt","Nt","9:41:26","9:41:37",11
+"2744",901,"Allie","Student","Research",900,60,"2018-02-19","12:33:30","13:23:49","13:38:49","Mt",15,"Affiliative","Groom","Nt","Mt","13:38:00","13:38:49",49
+"2787",946,"Allie","Student","Research",900,60,"2018-02-23","13:31:47","13:50:01","14:05:01","Nt",15,"Affiliative","Groom","Nm","Nt","13:58:25","13:59:24",59
+"2792",947,"Allie","Student","Research",900,60,"2018-02-23","13:31:47","13:50:01","14:05:01","Nt",15,"Affiliative","Groom","Nm","Nt","14:02:17","14:03:18",61
+"2795",945,"Allie","Student","Research",900,60,"2018-02-23","13:31:47","13:50:01","14:05:01","Nt",15,"Affiliative","Groom","Nb","Nt","14:04:43","14:05:01",18
+"3213",392,"Allie","Student","Research",900,60,"2018-03-23","13:37:13","14:25:20","14:40:20","Nt",15,"Affiliative","Groom","Mt","Nt","14:30:33","14:30:39",6
+"3216",404,"Allie","Student","Research",900,60,"2018-03-26","12:42:21","12:42:32","12:57:32","Nm",15,"Affiliative","Groom","Nm","Nt","12:42:57","12:43:09",12
+"3228",405,"Allie","Student","Research",900,60,"2018-03-26","12:42:21","12:42:32","12:57:32","Nm",15,"Affiliative","Groom","Nm","Nt","12:55:25","12:55:55",30
+"3480",649,"Allie","Student","Research",900,60,"2018-04-06","13:33:12","14:09:39","14:24:39","Mt",15,"Affiliative","Groom","Nt","Mt","14:16:07","14:16:22",15
+"3481",650,"Allie","Student","Research",900,60,"2018-04-06","13:33:12","14:09:39","14:24:39","Mt",15,"Affiliative","Groom","Nt","Mt","14:18:57","14:24:39",342
+"4203",99,"Meredith","Graduate Student","Research",900,60,"2018-06-20","14:04:04","14:04:17","14:19:17","Nt",15,"Affiliative","Groom","Nt","Mt","14:18:45","14:19:17",32
+"4402",25,"Meredith","Graduate Student","Research",900,60,"2018-06-27","14:15:58","14:50:39","15:05:39","Nt",15,"Affiliative","Groom","Mt","Nt","14:53:21","14:54:12",51
+"4455",77,"Meredith","Graduate Student","Research",900,60,"2018-06-28","14:05:51","14:37:38","14:52:38","Nb",15,"Affiliative","Groom","Nb","Nt","14:38:30","14:39:23",53
+"4580",181,"Meredith","Graduate Student","Research",900,60,"2018-06-30","13:31:10","13:46:30","14:01:30","Nr",15,"Affiliative","Groom","Nt","Nr","13:57:38","13:58:25",47
+"4582",182,"Meredith","Graduate Student","Research",900,60,"2018-06-30","13:31:10","13:46:30","14:01:30","Nr",15,"Affiliative","Groom","Nt","Nr","13:59:40","14:00:40",60
+"4669",7,"Meredith","Graduate Student","Research",900,60,"2018-07-02","11:01:39","11:02:23","11:17:23","Nl",15,"Affiliative","Groom","Nt","Nl","11:15:11","11:16:43",92
+"4765",113,"Meredith","Graduate Student","Research",900,60,"2018-07-03","11:02:13","11:49:08","12:04:08","Nt",15,"Affiliative","Groom","Nt","Nr","11:49:58","11:51:06",68
+"4768",112,"Meredith","Graduate Student","Research",900,60,"2018-07-03","11:02:13","11:49:08","12:04:08","Nt",15,"Affiliative","Groom","Nl","Nt","11:56:19","11:57:29",70
+"4822",46,"Meredith","Graduate Student","Research",900,60,"2018-07-06","11:34:34","11:50:43","12:05:43","Nw",15,"Affiliative","Groom","Nt","Nw","11:51:37","11:54:13",156
+"4823",47,"Meredith","Graduate Student","Research",900,60,"2018-07-06","11:34:34","11:50:43","12:05:43","Nw",15,"Affiliative","Groom","Nt","Nw","11:54:34","11:55:18",44
+"4922",20,"Meredith","Graduate Student","Research",900,60,"2018-07-09","14:08:59","14:39:55","14:54:55","Nt",15,"Affiliative","Groom","Nb","Nt","14:41:51","14:43:59",128
+"5435",23,"Meredith","Graduate Student","Research",900,60,"2018-07-22","11:12:41","11:29:18","11:44:18","Nt",15,"Affiliative","Groom","Nm","Nt","11:30:28","11:30:54",26
+"5442",24,"Meredith","Graduate Student","Research",900,60,"2018-07-22","11:12:41","11:29:18","11:44:18","Nt",15,"Affiliative","Groom","Nm","Nt","11:33:32","11:34:02",30
+"5537",18,"Meredith","Graduate Student","Research",900,60,"2018-07-23","15:23:53","15:40:35","15:55:35","Nt",15,"Affiliative","Groom","Nt","Ng","15:49:55","15:50:59",64
+"5540",17,"Meredith","Graduate Student","Research",900,60,"2018-07-23","15:23:53","15:40:35","15:55:35","Nt",15,"Affiliative","Groom","Nt","Nb","15:51:41","15:55:35",234
+"6118",50,"Meredith","Graduate Student","Research",900,60,"2018-08-21","13:29:53","14:01:07","14:16:07","Sn",15,"Affiliative","Groom","Sn","Nt","14:05:56","14:06:23",27
+"6329",94,"Meredith","Graduate Student","Research",900,60,"2018-08-24","13:05:36","13:22:02","13:37:02","Nt",15,"Affiliative","Groom","Nt","Mt","13:25:28","13:25:55",27
+"6332",95,"Meredith","Graduate Student","Research",900,60,"2018-08-24","13:05:36","13:22:02","13:37:02","Nt",15,"Affiliative","Groom","Nt","Nb","13:26:16","13:26:24",8
+"6374",133,"Meredith","Graduate Student","Research",900,60,"2018-08-24","13:05:36","13:52:38","14:07:38","Nl",15,"Affiliative","Groom","Nt","Nl","14:00:43","14:01:36",53
+"6377",145,"Meredith","Graduate Student","Research",900,60,"2018-08-24","13:05:36","14:08:04","14:23:04","Nb",15,"Affiliative","Groom","Nt","Nb","14:08:16","14:10:39",143
+"6381",146,"Meredith","Graduate Student","Research",900,60,"2018-08-24","13:05:36","14:08:04","14:23:04","Nb",15,"Affiliative","Groom","Nt","Nb","14:11:07","14:11:28",21
+"6385",143,"Meredith","Graduate Student","Research",900,60,"2018-08-24","13:05:36","14:08:04","14:23:04","Nb",15,"Affiliative","Groom","Nb","Nt","14:13:13","14:17:11",238
+"6389",147,"Meredith","Graduate Student","Research",900,60,"2018-08-24","13:05:36","14:08:04","14:23:04","Nb",15,"Affiliative","Groom","Nt","Nb","14:18:37","14:18:47",10
+"6390",144,"Meredith","Graduate Student","Research",900,60,"2018-08-24","13:05:36","14:08:04","14:23:04","Nb",15,"Affiliative","Groom","Nb","Nt","14:20:32","14:20:53",21
+"6481",42,"Meredith","Graduate Student","Research",900,60,"2018-08-31","13:14:03","13:45:38","14:00:38","Sn",15,"Affiliative","Groom","Sn","Nt","13:59:44","14:00:33",49
+"6660",47,"Meredith","Graduate Student","Research",900,60,"2018-09-02","13:17:31","14:03:40","14:18:40","Nt",15,"Affiliative","Groom","Nt","Mt","14:04:16","14:04:39",23
+"6661",50,"Meredith","Graduate Student","Research",900,60,"2018-09-02","13:17:31","14:03:40","14:18:40","Nt",15,"Affiliative","Groom","Nt","Nr","14:05:09","14:06:12",63
+"6663",49,"Meredith","Graduate Student","Research",900,60,"2018-09-02","13:17:31","14:03:40","14:18:40","Nt",15,"Affiliative","Groom","Nt","Nm","14:06:47","14:10:35",228
+"6667",48,"Meredith","Graduate Student","Research",900,60,"2018-09-02","13:17:31","14:03:40","14:18:40","Nt",15,"Affiliative","Groom","Nt","Mt","14:12:50","14:12:58",8
+"7017",41,"Meredith","Graduate Student","Research",900,60,"2018-09-09","13:27:42","13:59:24","14:14:24","Nt",15,"Affiliative","Groom","Nt","Nl","14:07:31","14:08:03",32
+"7125",27,"Meredith","Graduate Student","Research",900,60,"2018-09-14","14:13:54","14:29:25","14:44:25","Nt",15,"Affiliative","Groom","Nt","Mt","14:32:33","14:33:38",65
+"7127",28,"Meredith","Graduate Student","Research",900,60,"2018-09-14","14:13:54","14:29:25","14:44:25","Nt",15,"Affiliative","Groom","Nt","Mt","14:34:10","14:34:34",24
+"7134",26,"Meredith","Graduate Student","Research",900,60,"2018-09-14","14:13:54","14:29:25","14:44:25","Nt",15,"Affiliative","Groom","Nb","Nt","14:40:06","14:44:14",248
+"7152",35,"Meredith","Graduate Student","Research",900,60,"2018-09-14","14:13:54","14:47:37","15:02:37","Nr",15,"Affiliative","Groom","Nt","Nr","14:58:44","14:59:36",52
+"7154",36,"Meredith","Graduate Student","Research",900,60,"2018-09-14","14:13:54","14:47:37","15:02:37","Nr",15,"Affiliative","Groom","Nt","Nr","14:59:55","15:00:04",9
+"7181",77,"Meredith","Graduate Student","Research",900,60,"2018-09-14","14:13:54","15:18:19","15:33:19","Nl",15,"Affiliative","Groom","Nt","Nl","15:22:54","15:23:27",33
+"7514",15,"Meredith","Graduate Student","Research",900,60,"2018-09-22","13:22:15","13:37:39","13:52:39","Nm",15,"Affiliative","Groom","Nt","Nm","13:38:52","13:43:24",272
+"7760",148,"Meredith","Graduate Student","Research",900,60,"2018-09-23","13:07:59","15:09:00","15:24:00","Nt",15,"Affiliative","Groom","Nt","Mt","15:15:06","15:16:10",64
+"7765",147,"Meredith","Graduate Student","Research",900,60,"2018-09-23","13:07:59","15:09:00","15:24:00","Nt",15,"Affiliative","Groom","Nb","Nt","15:21:10","15:21:19",9
