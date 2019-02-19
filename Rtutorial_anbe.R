@@ -55,9 +55,6 @@ output: html_document
 # that will appear, navigate to where you stored the new folder you just
 # created. Select the folder and click "Ok" to set it as your working directory.
 
-# You can also set the working directory with code using the function below and
-# typing out the full file path.
-
 # You can use the code below to be accurate based on where your folder is and
 # what you named it for future projects. You can skip this step for now because
 # you already set the working directory. The code has been commented out.
