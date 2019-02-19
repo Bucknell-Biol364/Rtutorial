@@ -253,9 +253,9 @@ shapiro.test(DataFile$Variable)$p.value
 # Wilks test to see if it is now normal.
 
 # natural log
-shapiro.test(log(DataFile$Variable))
+shapiro.test(log(DataFile$Variable))$p.value
 # log base 10
-shapiro.test(log10(DataFile$Variable))
+shapiro.test(log10(DataFile$Variable))$p.value
 
 # If the data still isn't normal after transforming, then you should consider it
 # not normal and then use non-parametric tests during your statistical analysis.
