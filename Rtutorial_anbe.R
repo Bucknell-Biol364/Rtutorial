@@ -188,8 +188,8 @@ ResearchObs
 # It is a subset of the full CapuchinObs data set that focuses on instances
 # when the capuchin Natalie participated in grooming, either as the initiator 
 # (Actor) or recipient (Subject). You will first have to read in the data using 
-# the code below. Then try to explore the duration of Natalie's grooming bouts. 
-# Duration is a variable included in this data set.
+# the code below. Then try to explore the duration of Natalie's grooming bouts 
+# by changing the code below. Duration is a variable included in this data set.
 
 NatalieGroom <- read.csv("NatalieGroom.csv")
 
@@ -232,12 +232,11 @@ IQR(DataFile$Variable)
 # normally distributed data set. If the points do not closely lie on the
 # regression the plot creates then it is most likely not normally distributed.
 
+# Change the code below to explore Natalie's grooming bouts.
+
 install.packages("UsingR")
 library(UsingR)
-# simple.eda(DataFile) simple.eda is commented out here because at the moment the
-# dataset you are working with (ResearchObs) has a lot going on in terms of the
-# number and types of variables. This function can be used later when we begin
-# subsetting the data to be more manageable and easy to explore.
+simple.eda(DataFile$Variable) 
 
 # The Shapiro Wilks test is a way to statistically test if data is normal. This
 # can be done using the shapiro.test function. The null hypothesis for this test
@@ -245,7 +244,9 @@ library(UsingR)
 # and assume that the data is not normal. Therefore, if the p value returned is
 # greater than 0.05 then the data is normal. This function will return some
 # output that you don't need to look at. To focus on the p value use
-# shapiro.test(DataFile_Variable)$p.value.
+# shapiro.test(DataFile$Variable)$p.value.
+
+# Check if Natalie's grooming bouts are normally distributed.
 
 shapiro.test(DataFile$Variable)$p.value
 
